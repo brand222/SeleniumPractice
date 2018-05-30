@@ -1,6 +1,5 @@
 package interactingWithElements;
 
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -8,10 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class listOfElements {
+public class multipleSelectElements {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		// create a webdriver object
 		WebDriver driver;
 		// set your driver name, driver path, and base URL
@@ -36,18 +36,24 @@ public class listOfElements {
 		 * Below is the useful code...
 		 * **************************************************
 		 */
-		//here we create a list of webelements (in this case radio buttons)
-		//we will use an enhanced for loop to run assertions on the list of elements we created
-		List<WebElement> radioButtons = driver.findElements(By.xpath("//input[contains(@type,'radio')and contains(@name,'cars')]"));
 		
-		for (WebElement element : radioButtons) {
-			System.out.println("It is " + element.isEnabled() + " that the element is enabled");
-			System.out.println(element.getAttribute("value"));
-			
-
-				Thread.sleep(1000);
-				element.click();
-			}
+		WebElement selectionBox = driver.findElement(By.xpath("//fieldset/select[@id='multiple-select-example']"));
+		Select sel = new Select(selectionBox);
+		
+		sel.selectByValue("orange");
+		sel.deselectByValue("orange");
+		//selecting something 
+		sel.selectByIndex(2);
+		//selecting something by visible text
+		sel.selectByVisibleText("Apple");
+		//printing all selected options 
+		List<WebElement> selectedOptions = sel.getAllSelectedOptions();
+		// for each option we saved inside the list, we will print the text of that option
+		for (WebElement option : selectedOptions) {
+			System.out.println(option.getText());
 		}
+		//deselect all stuff
+		sel.deselectAll();
+		
 	}
-
+}

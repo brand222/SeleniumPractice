@@ -29,8 +29,15 @@ public class radioButtonsCheckBoxes {
 		driver.manage().window().maximize();
 		//open the browser and go to the site
 		driver.get(baseURL);
+		
+		/*
+		 * **************************************************
+		 * Below is the useful code...
+		 * **************************************************
+		 */
 		WebElement radioButton = driver.findElement(By.xpath("//input[@id='hondaradio']"));
 		radioButton.click();
+		//here we are checking if the element is selected
 		boolean itIsSelected = radioButton.isSelected();
 		if (itIsSelected) {
 			System.out.println("The radio button is selected");

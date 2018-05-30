@@ -1,7 +1,5 @@
 package interactingWithElements;
 
-
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -9,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class listOfElements {
+public class hiddenElements {
 
 	public static void main(String[] args) throws InterruptedException {
 		// create a webdriver object
@@ -25,7 +23,7 @@ public class listOfElements {
 		// set the driver object equal to the chromedriver
 		driver = new ChromeDriver();
 		// implicitly wait 5 seconds before each action
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		// maximize the window
 		driver.manage().window().maximize();
 		// open the browser and go to the site
@@ -36,18 +34,22 @@ public class listOfElements {
 		 * Below is the useful code...
 		 * **************************************************
 		 */
-		//here we create a list of webelements (in this case radio buttons)
-		//we will use an enhanced for loop to run assertions on the list of elements we created
-		List<WebElement> radioButtons = driver.findElements(By.xpath("//input[contains(@type,'radio')and contains(@name,'cars')]"));
+		Thread.sleep(3000);
+		WebElement textBox = driver.findElement(By.xpath("//*[@id='displayed-text']"));
+		WebElement btnHide = driver.findElement(By.xpath("//*[@id='hide-textbox']"));
+		WebElement btnShow = driver.findElement(By.xpath("//*[@id='show-textbox']"));
+		System.out.println("Textbox Displayed: " + textBox.isDisplayed());
+		//here we hid the textbox
+		btnHide.click();
+		Thread.sleep(1000);
+		System.out.println("After hiding the textbox");
+		System.out.println("Textbox displayed: " + textBox.isDisplayed());
+		//here we show the textbox
+		btnShow.click();
+		Thread.sleep(1000);
+		System.out.println("After re-showing the textbox");
+		//here we verify if it is displayed
+		System.out.println("Textbox displayed: " + textBox.isDisplayed());
 		
-		for (WebElement element : radioButtons) {
-			System.out.println("It is " + element.isEnabled() + " that the element is enabled");
-			System.out.println(element.getAttribute("value"));
-			
-
-				Thread.sleep(1000);
-				element.click();
-			}
-		}
 	}
-
+}

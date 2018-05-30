@@ -1,11 +1,13 @@
 package interactingWithElements;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+//here we are working with the 'select' class
 import org.openqa.selenium.support.ui.Select;
 
 public class dropDowns {
@@ -29,10 +31,23 @@ public class dropDowns {
 		driver.manage().window().maximize();
 		// open the browser and go to the site
 		driver.get(baseURL);
+		/*
+		 * **************************************************
+		 * Below is the useful code...
+		 * **************************************************
+		 */
 		
-		WebElement dropdownMenu = driver.findElement(By.xpath("//select[@id='carselect']"));
 		Select dropdownMenuOptions = new Select(driver.findElement(By.xpath("//select[@id='carselect']")));
+		//selecting by the visible text
 		dropdownMenuOptions.selectByVisibleText("Benz");
+		//selecting by the index position
+		dropdownMenuOptions.selectByIndex(2);
+		//here we will create a list and print out all the options
+		List<WebElement> dropdown = dropdownMenuOptions.getOptions();
+		
+		for (WebElement element: dropdown) {
+			System.out.println(element.getText());
+		}
 		
 	}
 }
