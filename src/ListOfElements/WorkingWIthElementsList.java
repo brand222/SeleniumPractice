@@ -21,7 +21,7 @@ public class WorkingWIthElementsList {
 	public void setUp() throws Exception {
 		baseURL = "https://learn.letskodeit.com/p/practice";
 		driverName = "webdriver.chrome.driver";
-		driverPath = "C:\\Users\\Brandon Mc\\git\\SeleniumPractice\\SeleniumFramework\\libs\\chromedriver.exe";
+		driverPath = "src\\chromedriver.exe";
 		System.setProperty(driverName, driverPath);
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

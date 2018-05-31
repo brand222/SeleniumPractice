@@ -22,7 +22,7 @@ public static void main(String[] args) {
 	// NOTE: need to pass the 'http://' with the URL
 	baseURL = "http://learn.letskodeit.com/p/practice";
 	chromeDriverName = "webdriver.chrome.driver";
-	chromeDriverPath = "C:\\Users\\Brandon Mc\\git\\Selenium\\SeleniumPractice\\src\\chromedriver.exe";
+	chromeDriverPath = "src\\chromedriver.exe";
 	// set the system property so selenium can work with the chromedriver
 	System.setProperty(chromeDriverName, chromeDriverPath);
 	// set the driver object equal to the chromedriver

@@ -19,7 +19,7 @@ public class ElementState {
 	@Before
 	public void setUp() throws Exception {
 		driverName = "webdriver.chrome.driver";
-		driverPath = "C:\\Users\\Brandon Mc\\git\\SeleniumPractice\\SeleniumFramework\\libs\\chromedriver.exe";
+		driverPath = "src\\chromedriver.exe";
 		System.setProperty(driverName, driverPath);
 		driver = new ChromeDriver();
 		baseURL = "https://www.google.com";
