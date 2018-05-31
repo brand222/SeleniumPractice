@@ -22,7 +22,7 @@ public static void main(String[] args) {
 	// NOTE: need to pass the 'http://' with the URL
 	baseURL = "http://learn.letskodeit.com/p/practice";
 	chromeDriverName = "webdriver.chrome.driver";
-	chromeDriverPath = "C:\\Users\\bmcdonald\\Desktop\\SeleniumPractice\\SeleniumPractice\\src\\chromedriver.exe";
+	chromeDriverPath = "C:\\Users\\Brandon Mc\\git\\Selenium\\SeleniumPractice\\src\\chromedriver.exe";
 	// set the system property so selenium can work with the chromedriver
 	System.setProperty(chromeDriverName, chromeDriverPath);
 	// set the driver object equal to the chromedriver
@@ -40,6 +40,12 @@ public static void main(String[] args) {
 	List <WebElement> elementList = gm.getElementList("//input[@type='text']", "xpath");
 	int size = elementList.size();
 	System.out.println("The list size is: " + size);
+	
+	boolean result = gm.isElementPresent("name", "id");
+	System.out.println(result);
+	
+	boolean result2 = gm.isElementPresent("name-not-presentwgwrtvrt", "id");
+	System.out.println(result2);
 			
 	
 }
