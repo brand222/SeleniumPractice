@@ -25,9 +25,7 @@ public class waitTypes {
 			System.out.println("Element not appeared on the web page");
 		}
 		return element;
-
 	}
-	
 	public WebElement clickWhenReady(By locator, int timeOut) {
 		WebElement element = null;
 		try {
