@@ -17,7 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class testScreenshots {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// create a webdriver object
 		WebDriver driver;
 		// set your driver name, driver path, and base URL
@@ -50,6 +50,7 @@ public class testScreenshots {
 		//send data to elements
 		flight_origin.sendKeys("New York");
 		departure_date.sendKeys("09/03/2018");
+		Thread.sleep(2000);
 		return_date.clear();
 		return_date.sendKeys("09/10/2018");
 		flight_destination.sendKeys("New York");
