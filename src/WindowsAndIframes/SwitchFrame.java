@@ -26,7 +26,7 @@ public class SwitchFrame {
 
 		// maximize the window
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.get(baseURL);
 	}
 	
@@ -35,7 +35,13 @@ public class SwitchFrame {
 		Thread.sleep(3000);
 		//firstly, we look through the DOM to find the frame we wanna switch to
 		//then we use this command to switch to this frame
-		driver.switchTo().frame("courses-iframe");
+		//switch to frame by id
+		//driver.switchTo().frame("courses-iframe");
+		//switch to frame by name
+		driver.switchTo().frame("iframe-name");
+		
+		//switch to frame by number
+		//driver.switchTo().frame(0);
 		//then we interact with element within the frame we switched to
 		WebElement searchBox = driver.findElement(By.id("search-courses"));
 		searchBox.sendKeys("python");
