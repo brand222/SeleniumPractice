@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+	<Appenders>
+		<Console name="Console">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %c{1} - %msg%n"></PatternLayout>
+		</Console>
+	</Appenders>
+
+	<Loggers>
+		<Root level="info">
+			<AppenderRef ref="Console">
+			</AppenderRef>
+		</Root>
+	</Loggers>
+</Configuration>
