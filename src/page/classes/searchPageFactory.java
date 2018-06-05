@@ -8,32 +8,32 @@ import org.openqa.selenium.WebElement;
 
 public class searchPageFactory {
 	
-	WebDriver driver;
+	static WebDriver driver;
 
 	@FindBy(name = "originAirport")
-	WebElement txtDepart;
+	static WebElement txtDepart;
 
 	@FindBy(id = "air-city-arrival")
-	WebElement txtArrive;
+	static WebElement txtArrive;
 
 	@FindBy(id = "air-date-departure")
-	WebElement txtDepartDt;
+	static WebElement txtDepartDt;
 
 	@FindBy(id = "air-date-return")
-	WebElement txtReturnDt;
+	static WebElement txtReturnDt;
 
 	@FindBy(id = "air-pax-count-adults")
 	@CacheLookup
-	WebElement btnAdults;
+	static WebElement btnAdults;
 
 	@FindBy(id = "air-pax-count-seniors")
-	WebElement btnSeniors;
+	static WebElement btnSeniors;
 
 	@FindBy(id = "jb-booking-form-submit-button")
-	WebElement btnSearch;
+	static WebElement btnSearch;
 
 	@FindBy(id = "trip-type-one-way")
-	WebElement rbtnOneway;
+	static WebElement rbtnOneway;
 
 	// here we are creating a constructor that initiates the instance of the
 	// webdriver class
@@ -46,10 +46,15 @@ public class searchPageFactory {
 		btnSearch.click();
 	}
 
-	public void enterFlightInfo(String dept, String arrival) {
+	public void enterFlightInfo(String dept, String arrival) throws InterruptedException  {
 		txtDepart.sendKeys(dept);
+		Thread.sleep(500);
 		txtArrive.sendKeys(arrival);
+		Thread.sleep(500);
+		txtDepartDt.clear();
 		txtDepartDt.sendKeys("07/11/2018");
+		Thread.sleep(500);
+		txtReturnDt.clear();
 		txtReturnDt.sendKeys("07/29/2018");
 	}
 }

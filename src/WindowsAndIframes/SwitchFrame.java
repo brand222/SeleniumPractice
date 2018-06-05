@@ -18,6 +18,7 @@ public class SwitchFrame {
 	private String baseURL;
 	private String chromeDriverName = "webdriver.chrome.driver";
 	private String chromeDriverPath = "src\\chromedriver.exe";
+	
 	@Before
 	public void setUp() throws Exception {
 		System.setProperty(chromeDriverName, chromeDriverPath);
