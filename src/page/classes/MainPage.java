@@ -1,5 +1,8 @@
 package page.classes;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,10 +25,27 @@ public class MainPage {
 	@FindBy(xpath = "//*[@id='navbar']/div/div/div/ul/li[4]/ul/li[5]/a")
 	public WebElement btnLogout;
 	
+	@FindBy(xpath = "//*[@id='navbar']/div/div/div/ul/li[4]/ul")
+	public WebElement dropDownList;
 	
-	public void logout(WebDriver driver) {
+	public void selectLogout() throws InterruptedException {
 		menuDropdown.click();
+		Thread.sleep(1000);
 		btnLogout.click();
+			}
+		
+	
+	
+	public void logout(WebDriver driver) throws InterruptedException {
+		menuDropdown.click();
+		Thread.sleep(2000);
+		List<WebElement> dropdownOptions = dropDownList.findElements(By.tagName("a"));
+		for (WebElement i : dropdownOptions) {
+			if (i.getText().trim().equals("Log Out")) {
+				i.click();
+				break;
+			}
+		}
 	}
 	
 	public boolean correctTitle(WebDriver driver, String expectedTitle) {

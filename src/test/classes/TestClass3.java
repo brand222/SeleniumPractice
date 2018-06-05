@@ -70,11 +70,13 @@ public class TestClass3 {
 	
 	@Test
 	public void LogOut() throws InterruptedException {
-		LogIn();
-		Thread.sleep(2000);
-		mainPage.menuDropdown.click();
-		mainPage.btnLogout.click();
-		Thread.sleep(3000);
+		loginPage = new LoginPage(driver);
+		mainPage = new MainPage(driver);
+		loginPage.btnLogin.click();
+		loginPage.LogIn(driver, "Brandon_McDonald22@yahoo.com", "Passwordman123");
+		Assert.assertTrue(mainPage.correctTitle(driver, "Let's Kode It"));
+		mainPage.selectLogout();
+		
 	}
 	
 	
