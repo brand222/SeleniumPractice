@@ -13,6 +13,7 @@ public class SearchPage {
 	 * @param driver
 	 * @return
 	 */
+	
 	public static WebElement txtOrigin(WebDriver driver) {
 		element = driver.findElement(By.xpath("//*[@id='air-city-departure']"));
 		return element;
@@ -44,6 +45,8 @@ public class SearchPage {
 	 * @return
 	 * @throws InterruptedException 
 	 */
+	
+	
 	public static void enterSearchData(WebDriver driver, String origin, String dest) throws InterruptedException{
 		fillOriginField(driver, origin);
 		Thread.sleep(500);
