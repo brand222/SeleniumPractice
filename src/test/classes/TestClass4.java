@@ -15,28 +15,29 @@ import page.classes.subPOM;
 
 public class TestClass4 {
 	private static WebDriver driver;
-	static subPOM pom;
+	 subPOM pom;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "src\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		pom.goTo("http://www.google.com/");
+		String baseURL = "http://www.google.com/";
+		driver.get(baseURL);
 	}
 
 	@Test
 	public void test() throws InterruptedException {
 		
 		//login
-		pom.LogIn();
+		//pom.LogIn();
 		//assert that we are on the main page
 		Assert.assertTrue(pom.onMainPage());
 	}
 	
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		//driver.quit();
+		driver.quit();
 	}
 
 }

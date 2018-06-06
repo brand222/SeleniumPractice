@@ -12,7 +12,7 @@ public class subPOM extends Base {
 		super(driver);
 	}
 	
-	String baseURL = "http://www.google.com/";
+	
 	//page elements
 	By btnLoginLocator = By.id("gb_70");
 	
@@ -28,7 +28,7 @@ public class subPOM extends Base {
 	
 	//login method
 	public void LogIn() throws InterruptedException {
-		isDisplayed(btnLoginLocator, 10);
+		//isDisplayed(btnLoginLocator, 10);
 		click(btnLoginLocator);
 		type("b.mcdonald2323", txtUsernameLocator);
 		click(btnNext1Locator);
