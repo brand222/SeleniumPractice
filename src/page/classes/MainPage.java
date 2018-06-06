@@ -35,7 +35,6 @@ public class MainPage{
 			}
 		
 	
-	
 	public void logout(WebDriver driver) throws InterruptedException {
 		menuDropdown.click();
 		Thread.sleep(2000);

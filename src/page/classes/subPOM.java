@@ -27,8 +27,7 @@ public class subPOM extends Base {
 	
 	By txtSearchLocator = By.id("lst-ib");
 	
-	By lnkUserProfile = By.className("gb_b gb_ib gb_R");
-	
+	By lnkUserProfile = By.xpath("(//div/a[@role='button'])[3]");	
 	By btnMyAccount = By.xpath("//div/a[text()='My Account']");
 	
 	By headerSignInSecurity = By.id("i3");
