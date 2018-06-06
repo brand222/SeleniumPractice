@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class MainPage {
+public class MainPage{
 
 	public WebDriver driver;
 	
