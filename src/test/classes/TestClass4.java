@@ -27,12 +27,16 @@ public class TestClass4 {
 	}
 
 	@Test
-	public void test() throws InterruptedException {
-		
+	public void login_goToAccountPage() throws InterruptedException {
+		pom = new subPOM(driver);
 		//login
-		//pom.LogIn();
+		pom.LogIn();
 		//assert that we are on the main page
 		Assert.assertTrue(pom.onMainPage());
+		//open account page
+		pom.enterProfilePage();
+		//assert we are on the profile page
+		Assert.assertTrue(pom.onAccountPage());
 	}
 	
 	@AfterClass

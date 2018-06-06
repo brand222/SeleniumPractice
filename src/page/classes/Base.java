@@ -1,6 +1,7 @@
 package page.classes;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -30,6 +31,10 @@ public class Base {
 	public void type(String inputText, By locator) {
 		find(locator).sendKeys(inputText);
 	}
+	
+	public void enterKeys(Keys key, By locator) {
+		find(locator).sendKeys(key);
+		}
 
 	public boolean isDisplayed(By locator, int maxWaitTime) {
 		try {
